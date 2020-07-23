@@ -24,7 +24,7 @@ export default class Users extends Component {
     e.preventDefault();
     const data = { name: this.state.inputValue };
 
-    fetch("http://localhost:3030/api/users", {
+    fetch("http://dry-forest-32366.herokuapp.com/api/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +43,7 @@ export default class Users extends Component {
 
   handleClick() {
     axios
-      .get("http://localhost:3030/api/users")
+      .get("http://dry-forest-32366.herokuapp.com/api/users")
       .then((response) => this.setState({ userList: [...response.data] }));
   }
 
@@ -51,12 +51,16 @@ export default class Users extends Component {
     e.preventDefault();
     this.setState({ userId: e.target.parentElement.id });
 
-    fetch(`http://localhost:3030/api/users/${e.target.parentElement.id}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
+    fetch(
+      `http://dry-forest-32366.herokuapp.com/api/users/${e.target.parentElement.id}`,
+      {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
         // console.log("Success:", data);
@@ -72,13 +76,16 @@ export default class Users extends Component {
     e.preventDefault();
 
     const data = { name: this.state.inputValue };
-    fetch(`http://localhost:3030/api/users/${this.state.userId}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
+    fetch(
+      `http://dry-forest-32366.herokuapp.com/api/users/${this.state.userId}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
@@ -92,12 +99,15 @@ export default class Users extends Component {
   handleDelete(e) {
     e.preventDefault();
 
-    fetch(`http://localhost:3030/api/users/${this.state.userId}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
+    fetch(
+      `http://dry-forest-32366.herokuapp.com/api/users/${this.state.userId}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then((response) => JSON.stringify(response))
       .then((data) => {
         console.log("Success:", data);
