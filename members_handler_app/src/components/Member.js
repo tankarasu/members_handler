@@ -1,4 +1,5 @@
 import React from "react";
+import share from "../images/share.png";
 
 export default function Member({ userList, userClick }) {
   return (
@@ -7,7 +8,13 @@ export default function Member({ userList, userClick }) {
         return (
           <li key={element.id} id={element.id}>
             <span>{element.name} </span>
-            <button onClick={(e) => userClick(e)}>open</button>
+            <img
+              src={share}
+              alt="visualiser"
+              width="15px"
+              height="15px"
+              onClick={(e) => userClick(e)}
+            />
           </li>
         );
       })}
