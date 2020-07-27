@@ -1,0 +1,41 @@
+html {
+  font-size: 1rem;
+}
+
+.contactList {
+  font-size: 0.75rem;
+}
+
+.contact-title {
+  font-family: "Rowdies", cursive;
+  font-size: 1rem;
+}
+
+@media screen and (min-width: 1200px) {
+  .contactList {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .contactList {
+    color: indigo;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .contactList {
+    color: green;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .contactList {
+    color: red;
+  }
+}
+@media screen and (max-width: 575px) {
+  .contactList {
+    color: orangered;
+  }
+}
