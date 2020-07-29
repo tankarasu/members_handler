@@ -2,7 +2,7 @@ import React from "react";
 import trash from "../images/trash.png";
 import modify from "../images/modify.png";
 
-export default function Member({ userList, userClick }) {
+export default function Member({ userList, deleteContact,deleteModal }) {
   return (
     <React.Fragment>
       <ul className="row d-flex justify-content-around">
@@ -15,14 +15,23 @@ export default function Member({ userList, userClick }) {
             >
               <div className="card p-1 m-1">
                 <div className="row contact-header bg-secondary text-white m-0 p-1">
-                  <div className="col-11 p-1 m-0 text-left contact-title">
-                    {element.name} <span>Prénom</span>
-                    <span className="badge bg-light text-dark ml-1">
+                  <div className="col-10 p-1 m-0 text-left contact-title">
+                    {element.name} <span>{element.lastName}</span>
+                    <span className="badge bg-light text-dark ml-2">
                       {element.id}
                     </span>
                   </div>
                   <div className="col-1 p-0 m-0 ">
                     <img src={modify} alt="modifier" />
+                  </div>
+                  <div className="col-1 p-0 m-0 contact-footer">
+                    <img
+                      src={trash}
+                      className=""
+                      alt="trash"
+                      onClick={deleteContact()}
+                      id={element.id}
+                    />
                   </div>
                 </div>
                 <div className="row ">
@@ -37,28 +46,20 @@ export default function Member({ userList, userClick }) {
                   </div>
                   <div className=" row col-9 contact-info">
                     <div className="col-12 text-left">
-                      30.12.1979 - 40 ans
+                      {element.bornAt} - 40 ans
                     </div>
+                    <span className="col-12 text-left">{element.adress}</span>
                     <span className="col-12 text-left">
-                      60 rue Pierre Chanteloup
+                      {element.zip} {element.city}
                     </span>
-                    <span className="col-12 text-left">
-                      77190 Dammarie Les Lys
-                    </span>
-                    <span className="col-12 text-left">Adresse 3</span>
-                    <span className="col-12 text-left">Adresse 4</span>
-                    <span className="col-6 text-left">01 52 56 58 54</span>
-                    <span className="col-6 text-left">06 05 04 03 02</span>
+                    <span className="col-6 text-left">{element.tel1}</span>
+                    <span className="col-6 text-left">{element.tel2}</span>
                     <a href="#" className="col-12 text-left">
-                      karasutan@email.com
+                      {element.eMail}
                     </a>
                   </div>
                 </div>
-                <div className="row">
-                  <div className="col-12 contact-footer">
-                    <img src={trash} className="" alt="trash" />
-                  </div>
-                </div>
+                <div className="row"></div>
               </div>
             </li>
           );
