@@ -28,11 +28,13 @@ export default class App extends Component {
     });
   };
 
+  abortDelete = (e) => {
+    e.preventDefault();
+    this.setState({ deleteModal: false, uniqUser: { name: "", id: "" } });
+  };
+
   confirmDelete = (e) => {
     e.preventDefault();
-    console.log(e);
-    console.log("deleted");
-    console.log(this.state.uniqUser.name, " ", this.state.uniqUser.id);
 
     fetch(
       `http://dry-forest-32366.herokuapp.com/api/users/${this.state.uniqUser.id}`,
@@ -180,6 +182,7 @@ export default class App extends Component {
           <Modal
             user={this.state.uniqUser}
             confirmDelete={() => this.confirmDelete}
+            abortDelete={() => this.abortDelete}
           />
         )}
         <Users

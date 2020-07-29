@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class Modal extends Component {
   render() {
-    let { confirmDelete } = this.props;
+    let { confirmDelete, abortDelete } = this.props;
     return (
       <div className="deleteModal">
         <p>
@@ -10,7 +10,7 @@ export default class Modal extends Component {
           contacts?
         </p>
         <button onClick={confirmDelete()}>Confirmer</button>
-        <button>Annuler</button>
+        <button onClick={abortDelete()}>Annuler</button>
       </div>
     );
   }
