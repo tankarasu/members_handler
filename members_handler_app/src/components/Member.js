@@ -2,11 +2,48 @@ import React from "react";
 import trash from "../images/trash.png";
 import modify from "../images/modify.png";
 
-export default function Member({ userList, deleteContact,deleteModal }) {
+export default function Member({
+  userList,
+  deleteContact,
+  modifyModal,
+  searchValue,
+}) {
+  let filteredUserList = userList.filter(
+    (item) =>
+      (item.name !== undefined || item.name != null
+        ? item.name.indexOf(searchValue) !== -1
+        : false) ||
+      (item.lastName !== undefined || item.lastName != null
+        ? item.lastName.indexOf(searchValue) !== -1
+        : false)
+  );
+
+  function getAge(date) {
+    var diff = Date.now() - Date.UTC(date);
+    var age = new Date(diff);
+    return Math.abs(age.getUTCFullYear() - 1970);
+  }
+
+  //tri du tableau d'objet
+  function compare(a, b) {
+    const nameA = a.name.toUpperCase();
+    const nameB = b.name.toUpperCase();
+
+    let comparison = 0;
+    if (nameA > nameB) {
+      comparison = 1;
+    } else if (nameA < nameB) {
+      comparison = -1;
+    }
+    return comparison;
+  }
+
+  filteredUserList.sort(compare);
+
   return (
     <React.Fragment>
       <ul className="row d-flex justify-content-around">
-        {userList.map((element) => {
+        {filteredUserList.map((element) => {
           return (
             <li
               className="list-unstyled col-md-6 col-lg-4 contactList"
@@ -16,13 +53,28 @@ export default function Member({ userList, deleteContact,deleteModal }) {
               <div className="card p-1 m-1">
                 <div className="row contact-header bg-secondary text-white m-0 p-1">
                   <div className="col-10 p-1 m-0 text-left contact-title">
-                    {element.name} <span>{element.lastName}</span>
+                    <span>
+                      {element.name !== undefined || element.name != null
+                        ? element.name.toUpperCase() + " "
+                        : ""}
+                    </span>
+                    <span>
+                      {element.lastName !== undefined ||
+                      element.lastName != null
+                        ? element.lastName.toUpperCase()
+                        : " "}
+                    </span>
                     <span className="badge bg-light text-dark ml-2">
                       {element.id}
                     </span>
                   </div>
                   <div className="col-1 p-0 m-0 ">
-                    <img src={modify} alt="modifier" />
+                    <img
+                      src={modify}
+                      alt="modifier"
+                      id={element.id}
+                      onClick={(e) => modifyModal(e)}
+                    />
                   </div>
                   <div className="col-1 p-0 m-0 contact-footer">
                     <img

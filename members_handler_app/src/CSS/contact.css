@@ -1,5 +1,9 @@
-.contactList > div{
+.contactList > div {
   border-radius: 10px;
+}
+
+.userList {
+  margin-top: 150px;
 }
 
 .contact-header {
@@ -8,7 +12,7 @@
   border-bottom-right-radius: 10px;
 }
 
-.profil{
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+.profil {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }

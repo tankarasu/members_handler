@@ -1,6 +1,6 @@
 .deleteModal {
   position: fixed;
-  top: 50%;
+  top: 40%;
   left: 50%;
   width: 500px;
   margin-left: -250px;
@@ -13,4 +13,12 @@
   transform: scale(1);
   opacity: 1;
   visibility: visible;
+}
+
+.deleteModal input {
+  margin-bottom: 5px;
+}
+
+.deleteModal form {
+  padding: 5px;
 }

@@ -1,13 +1,27 @@
 import React from "react";
-import SearchBar from "../components/SearchBar";
 import Add from "../components/Add";
+import SearchBar from "../components/SearchBar";
 
-export default function Header() {
+export default function Header({
+  addModal,
+  addContact,
+  userList,
+  handleAddChange,
+  handleTest,
+  searchValue,
+  abortSearch,
+}) {
   return (
-    <header className="row col-12">
-      <h1 className="ml-2 text-white">Contacts:</h1>
-      <SearchBar />
-      <Add />
-    </header>
+    <div className="main-header">
+      <header className="row col-12 ">
+        <h1 className="ml-2 text-white">Contacts:</h1>
+        <Add addModal={addModal} addContact={addContact} />
+        <SearchBar
+          handleTest={handleTest}
+          searchValue={searchValue}
+          abortSearch={() => abortSearch()}
+        />
+      </header>
+    </div>
   );
 }

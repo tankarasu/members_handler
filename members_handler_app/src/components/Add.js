@@ -1,10 +1,6 @@
-import React from 'react'
-import add from '../images/add.png'
+import React from "react";
+import add from "../images/add.png";
 
-export default function Add() {
-    return (
-        <img src={add} alt="ajouter">
-            
-        </img>
-    )
+export default function Add({ addContact }) {
+  return <img src={add} alt="ajouter" onClick={addContact}></img>;
 }

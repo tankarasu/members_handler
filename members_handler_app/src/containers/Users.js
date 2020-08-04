@@ -3,14 +3,22 @@ import Member from "../components/Member";
 
 export default class Users extends Component {
   render() {
-    const { userList, deleteContact, deleteModal } = this.props;
-    
+    const {
+      userList,
+      deleteContact,
+      deleteModal,
+      modifyModal,
+      searchValue,
+    } = this.props;
+
     return (
-      <div className="col-12">
+      <div className="col-12 userList">
         <Member
+          searchValue={searchValue}
           userList={userList}
           deleteContact={deleteContact}
           deleteModal={deleteModal}
+          modifyModal={modifyModal}
         />
       </div>
     );
