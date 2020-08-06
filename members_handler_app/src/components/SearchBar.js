@@ -2,7 +2,7 @@ import React from "react";
 
 export default function SearchBar({ searchValue, handleTest, abortSearch }) {
   return (
-    <div className="searchBar">
+    <div className="searchBar col-8 p-0">
       <input
         type="text"
         name=""
@@ -12,12 +12,7 @@ export default function SearchBar({ searchValue, handleTest, abortSearch }) {
         value={searchValue}
       />
 
-      <button
-        onClick={abortSearch}
-        
-      >
-        X
-      </button>
+      <button onClick={abortSearch}>X</button>
     </div>
   );
 }

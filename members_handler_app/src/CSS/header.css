@@ -1,5 +1,16 @@
 .main-header {
   position: fixed;
+  margin: 0 auto;
+  margin-top: 20px;
   top: 0;
   z-index: 20;
+  width: 100vw;
+  background: linear-gradient(135deg, #1e5799 0%, #2989d8 50%, #413490 100%);
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

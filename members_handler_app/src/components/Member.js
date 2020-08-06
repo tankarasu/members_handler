@@ -46,7 +46,7 @@ export default function Member({
         {filteredUserList.map((element) => {
           return (
             <li
-              className="list-unstyled col-md-6 col-lg-4 contactList"
+              className="list-unstyled contactList"
               key={element.id}
               id={element.id}
             >
@@ -86,32 +86,28 @@ export default function Member({
                     />
                   </div>
                 </div>
-                <div className="row ">
-                  <div className="col-3">
+                <div className="contact-main-info ">
+                  <div className="profil">
                     <img
-                      className="profil"
                       src="https://via.placeholder.com/150"
                       alt="visualiser"
                       width="100px"
                       height="100px"
                     />
                   </div>
-                  <div className=" row col-9 contact-info">
-                    <div className="col-12 text-left">
-                      {element.bornAt} - 40 ans
-                    </div>
-                    <span className="col-12 text-left">{element.adress}</span>
-                    <span className="col-12 text-left">
+                  <div className=" contact-info">
+                    <div className="">{element.bornAt} - 40 ans</div>
+                    <span className="">{element.adress}</span>
+                    <span className="">
                       {element.zip} {element.city}
                     </span>
-                    <span className="col-6 text-left">{element.tel1}</span>
-                    <span className="col-6 text-left">{element.tel2}</span>
-                    <a href="#" className="col-12 text-left">
-                      {element.eMail}
-                    </a>
+                    <div className="telephone">
+                      <span className="">{element.tel1}</span>
+                      <span className="">{element.tel2}</span>
+                    </div>
+                    <span className="">{element.eMail}</span>
                   </div>
                 </div>
-                <div className="row"></div>
               </div>
             </li>
           );

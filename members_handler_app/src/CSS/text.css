@@ -11,6 +11,11 @@ html {
   font-size: 1rem;
 }
 
+.contact-info span,
+.contact-info div {
+  text-align: left;
+}
+
 @media screen and (min-width: 1200px) {
   .contactList {
     font-size: 12px;

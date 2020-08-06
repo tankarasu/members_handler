@@ -256,7 +256,7 @@ export default class App extends Component {
     };
 
     return (
-      <div className="App row m-2">
+      <div className="App row m-0">
         <Header
           userList={this.state.userList}
           searchValue={this.state.searchValue}
